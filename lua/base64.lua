@@ -1,4 +1,3 @@
-#!/usr/bin/env lua
 -- Lua 5.1+ base64 v3.0 (c) 2009 by Alex Kloss <alexthkloss@web.de>
 -- licensed under the terms of the LGPL2
 
@@ -55,23 +54,4 @@ function M.dec(data)
 	)
 end
 
--- command line if not called as library
-if arg ~= nil then
-	local func = "enc"
-	for n, v in ipairs(arg) do
-		if n > 0 then
-			if v == "-h" then
-				print("base64.lua [-e] [-d] text/data")
-				break
-			elseif v == "-e" then
-				func = "enc"
-			elseif v == "-d" then
-				func = "dec"
-			else
-				print(_G[func](v))
-			end
-		end
-	end
-else
-	return M
-end
+return M
